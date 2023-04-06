@@ -8,7 +8,7 @@ import Settings from "./components/settings";
 export default function MemeGenerator() {
     const [bottomTxt, setBottomTxt] = useState("")
     const [topTxt, setTopTxt] = useState("")
-    const [url, setUrl] = useState("https://picsum.photos/800")
+    const [url, setUrl] = useState("")
     const [width, setWidth] = useState(800)
     const [height, setHeight] = useState(800)
     const [mirror, setMirror] = useState(false)
