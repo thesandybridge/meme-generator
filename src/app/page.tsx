@@ -1,6 +1,6 @@
 "use client"
 import "./globals.css"
-import * as htmlToImage from 'html-to-image';
+import { toPng } from 'html-to-image';
 import { useState, useRef } from "react"
 import Template from "./components/template";
 import Settings from "./components/settings";
@@ -18,11 +18,9 @@ export default function MemeGenerator() {
     const meme = useRef<HTMLDivElement>(null)
 
     const exportMeme = (): void => {
-        if (meme.current === null) {
-            return
-        }
+        if (meme.current === null) return
 
-        htmlToImage.toPng(meme.current).then((url) => {
+        toPng(meme.current).then((url) => {
             const link = document.createElement('a')
             link.download = 'meme.png'
             link.href = url

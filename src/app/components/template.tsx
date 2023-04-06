@@ -3,20 +3,32 @@ import {Meme} from "./types"
 
 
 const Template = forwardRef(function Template(props: Meme, ref: any ) {
+
+    const {
+        width,
+        height,
+        url,
+        bottomText,
+        topText,
+        color,
+        mirror,
+        rotate,
+    } = props
+
     return (
         <>
-            <div className="meme" ref={ref} style={{ width: props.width, height: props.height}}>
+            <div className="meme" ref={ref} style={{ width: width, height: height}}>
                 <img
                     alt="meme"
-                    src={props.url}
+                    src={url}
                     className="meme-image"
                     style={{
-                        transform: `scaleX(${props.mirror ? -1 : 1}) rotate(${props.rotate}deg)`,
+                        transform: `scaleX(${mirror ? -1 : 1}) rotate(${rotate}deg)`,
                     }}
                 />
-                <div className="meme-text" style={{color: props.color}}>
-                    {props.topText && (<h2 className="text-top">{props.topText}</h2>)}
-                    {props.bottomText && (<h2 className="text-bottom">{props.bottomText}</h2>)}
+                <div className="meme-text" style={{color: color}}>
+                    {topText && (<h2 className="text-top">{topText}</h2>)}
+                    {bottomText && (<h2 className="text-bottom">{bottomText}</h2>)}
                 </div>
             </div>
         </>
