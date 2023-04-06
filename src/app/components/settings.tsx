@@ -6,16 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function Settings(props: Controls) {
 
     const handleRotate = (r: number, clockwise: boolean): void => {
-
-        if (!clockwise) {
-            props.setRotate(r - 90)
-            props.setWidth(props.settings?.height)
-            props.setHeight(props.settings?.width)
-        } else {
-            props.setRotate(r + 90)
-            props.setWidth(props.settings?.height)
-            props.setHeight(props.settings?.width)
-        }
+        props.setRotate(clockwise ? r + 90 : r - 90)
+        props.setWidth(props.settings?.height)
+        props.setHeight(props.settings?.width)
     }
 
     return (
