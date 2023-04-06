@@ -1,5 +1,7 @@
 import { forwardRef } from "react"
 
+const DELTA = 0.07
+
 const MemeTemplate = forwardRef(function MemeTemplate(props: Meme, ref: any ) {
 
     const {
@@ -10,6 +12,7 @@ const MemeTemplate = forwardRef(function MemeTemplate(props: Meme, ref: any ) {
         color,
         mirror,
         rotate,
+        bars,
     } = props
 
     return (
@@ -24,8 +27,8 @@ const MemeTemplate = forwardRef(function MemeTemplate(props: Meme, ref: any ) {
                     }}
                 />
                 <div className="meme-text" style={{color: color}}>
-                    {topText && (<h2 className="text-top">{topText}</h2>)}
-                    {bottomText && (<h2 className="text-bottom">{bottomText}</h2>)}
+                    {topText && (<h2 style={{fontSize: `${DELTA * scale}px`, backgroundColor: `${bars ? "#000" : "transparent"}`}}className="text-top">{topText}</h2>)}
+                    {bottomText && (<h2 style={{fontSize: `${DELTA * scale}px`, backgroundColor: `${bars ? "#000" : "transparent"}`}} className="text-bottom">{bottomText}</h2>)}
                 </div>
             </div>
         </>

@@ -14,6 +14,7 @@ export default function MemeControls(props: Controls) {
         setScale,
         setMirror,
         setColor,
+        setBars,
     } = props
 
     /**
@@ -47,8 +48,7 @@ export default function MemeControls(props: Controls) {
             <input type="text" name="text_bottom" value={settings?.bottomText} placeholder="Bottom Text" onChange={e => setBottomTxt(e.target.value)}/>
 
             <label htmlFor="scale">Scale</label>
-            <input
-            type="range"
+            <input type="range"
             min="200"
             max="1000"
             name="scale"
@@ -70,6 +70,10 @@ export default function MemeControls(props: Controls) {
             </div>
 
             <HexColorPicker color={settings?.color} onChange={setColor} />
+            <div className="checkbox-group">
+                <input name="bars" type="checkbox" onChange={_ => setBars(!settings?.bars)}/>
+                <label className="checkbox-label" htmlFor="bars">Text Bars</label>
+            </div>
             {settings?.url && (<button className="download-btn" onClick={props.export}>Download Meme</button>)}
         </>
     )

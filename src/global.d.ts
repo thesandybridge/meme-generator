@@ -9,6 +9,7 @@ declare type Meme = {
     mirror: boolean,
     rotate: number,
     color: string,
+    bars: boolean,
 }
 
 declare type Controls = {
@@ -20,5 +21,6 @@ declare type Controls = {
     setScale: SetState<number>,
     setMirror: SetState<boolean>,
     setColor: SetState<string>,
+    setBars: SetState<boolean>,
     export: fnVoid,
 }

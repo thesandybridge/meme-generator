@@ -13,6 +13,7 @@ export default function MemeGenerator() {
     const [mirror, setMirror] = useState(false)
     const [rotate, setRotate] = useState(0)
     const [color, setColor] = useState("#ffffff")
+    const [bars, setBars] = useState(false)
 
     const meme = useRef<HTMLDivElement>(null)
 
@@ -39,7 +40,8 @@ export default function MemeGenerator() {
                     bottomText: bottomTxt,
                     mirror: mirror,
                     rotate: rotate,
-                    color: color
+                    color: color,
+                    bars: bars,
                 }}
                 setUrl={setUrl}
                 setTopTxt={setTopTxt}
@@ -48,6 +50,7 @@ export default function MemeGenerator() {
                 setScale={setScale}
                 setMirror={setMirror}
                 setColor={setColor}
+                setBars={setBars}
                 export={exportMeme}
                 />
             </div>
@@ -61,6 +64,7 @@ export default function MemeGenerator() {
                 color={color}
                 topText={topTxt}
                 bottomText={bottomTxt}
+                bars={bars}
                 />
             </div>
 
