@@ -52,23 +52,17 @@ export default function Settings(props: Controls) {
             <label htmlFor="text_bottom">Bottom Text</label>
             <input type="text" name="text_bottom" value={settings?.bottomText} placeholder="Bottom Text" onChange={e => setBottomTxt(e.target.value)}/>
 
-            <label htmlFor="width">Width</label>
+            <label htmlFor="width">Size</label>
             <input
             type="number"
             min="200"
             name="width"
             value={settings?.width}
             placeholder={settings?.width ? settings?.width.toString() : ""}
-            onChange={e => setWidth(handleSize(e))}/>
-
-            <label htmlFor="height">Height</label>
-            <input
-            type="number"
-            min="200"
-            name="height"
-            value={settings?.height}
-            placeholder={settings?.height ? settings?.height.toString() : ""}
-            onChange={e => setHeight(handleSize(e))}/>
+            onChange={e => {
+                setWidth(handleSize(e))
+                setHeight(handleSize(e))
+            }}/>
 
             <div className="image-controls">
                 <button title="Mirror" onClick={_ => setMirror(!settings?.mirror)}>

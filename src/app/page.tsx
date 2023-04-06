@@ -36,7 +36,7 @@ export default function MemeGenerator() {
                 settings={{
                     url: url,
                     width: width,
-                    height: height,
+                    height: width,
                     topText: topTxt,
                     bottomText: bottomTxt,
                     mirror: mirror,
