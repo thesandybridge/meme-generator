@@ -2,8 +2,8 @@
 import "./globals.css"
 import { toPng } from 'html-to-image';
 import { useState, useRef } from "react"
-import Template from "./components/template";
-import Settings from "./components/settings";
+import MemeTemplate from "./components/MemeTemplate";
+import MemeControls from "./components/MemeControls";
 
 export default function MemeGenerator() {
     const [bottomTxt, setBottomTxt] = useState("")
@@ -31,7 +31,7 @@ export default function MemeGenerator() {
         <div className="meme-interface">
             <div className="meme-settings">
                 <h1 id="title">Meme Generator</h1>
-                <Settings
+                <MemeControls
                 settings={{
                     url: url,
                     scale: scale,
@@ -52,7 +52,7 @@ export default function MemeGenerator() {
                 />
             </div>
             <div className="workspace">
-                <Template
+                <MemeTemplate
                 ref={meme}
                 url={url}
                 scale={scale}

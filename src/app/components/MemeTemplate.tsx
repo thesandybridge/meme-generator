@@ -1,8 +1,6 @@
 import { forwardRef } from "react"
-import {Meme} from "./types"
 
-
-const Template = forwardRef(function Template(props: Meme, ref: any ) {
+const MemeTemplate = forwardRef(function MemeTemplate(props: Meme, ref: any ) {
 
     const {
         scale,
@@ -34,5 +32,5 @@ const Template = forwardRef(function Template(props: Meme, ref: any ) {
     )
 })
 
-export default Template
+export default MemeTemplate
 

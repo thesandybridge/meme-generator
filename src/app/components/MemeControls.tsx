@@ -1,10 +1,9 @@
-import {Controls} from "./types"
 import { HexColorPicker } from "react-colorful";
 import { faRotateRight, faRotateLeft, faArrowsLeftRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ChangeEvent, SetStateAction } from "react";
 
-export default function Settings(props: Controls) {
+export default function MemeControls(props: Controls) {
 
     const {
         settings,

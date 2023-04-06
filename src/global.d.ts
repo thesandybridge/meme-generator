@@ -1,7 +1,7 @@
-export type SetState<T> = React.Dispatch<React.SetStateAction<T>>
-export type fnVoid = () => void
+declare type SetState<T> = React.Dispatch<React.SetStateAction<T>>
+declare type fnVoid = () => void
 
-export type Meme = {
+declare type Meme = {
     scale: number,
     topText: string,
     bottomText: string,
@@ -11,7 +11,7 @@ export type Meme = {
     color: string,
 }
 
-export type Controls = {
+declare type Controls = {
     settings?: Meme,
     setUrl: SetState<string>,
     setTopTxt: SetState<string>,
