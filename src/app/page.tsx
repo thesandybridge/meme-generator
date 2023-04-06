@@ -55,17 +55,19 @@ export default function MemeGenerator() {
                 />
             </div>
             <div className="workspace">
-                <MemeTemplate
-                ref={meme}
-                url={url}
-                scale={scale}
-                mirror={mirror}
-                rotate={rotate}
-                color={color}
-                topText={topTxt}
-                bottomText={bottomTxt}
-                bars={bars}
-                />
+                {url && (
+                    <MemeTemplate
+                    ref={meme}
+                    url={url}
+                    scale={scale}
+                    mirror={mirror}
+                    rotate={rotate}
+                    color={color}
+                    topText={topTxt}
+                    bottomText={bottomTxt}
+                    bars={bars}
+                    />
+                )}
             </div>
 
         </div>

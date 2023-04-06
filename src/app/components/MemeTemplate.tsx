@@ -19,7 +19,7 @@ const MemeTemplate = forwardRef(function MemeTemplate(props: Meme, ref: any ) {
         <>
             <div className="meme" ref={ref} style={{ width: scale, height: scale}}>
                 <img
-                    alt="meme"
+                    alt={`${topText} -- ${bottomText}`}
                     src={url}
                     className="meme-image"
                     style={{
