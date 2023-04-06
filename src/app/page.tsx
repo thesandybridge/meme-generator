@@ -25,7 +25,7 @@ export default function MemeGenerator() {
             link.download = 'meme.png'
             link.href = url
             link.click()
-        }).catch(err => new Error(err))
+        }).catch(err => console.error(err))
     }
 
     return (
