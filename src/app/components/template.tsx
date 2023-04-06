@@ -7,6 +7,7 @@ const Template = forwardRef(function Template(props: Meme, ref: any ) {
         <>
             <div className="meme" ref={ref} style={{ width: props.width, height: props.height}}>
                 <img
+                    alt="meme"
                     src={props.url}
                     className="meme-image"
                     style={{
