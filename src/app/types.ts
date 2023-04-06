@@ -1,3 +1,18 @@
+export type ImageSize = {
+  width: number;
+  height: number;
+}
+
+export type UseCanvasOptions = {
+  topText: string;
+  bottomText: string;
+  textColor: string;
+  imageUrl: string;
+  imageSize: ImageSize;
+  imageRotation: number;
+  imageMirror: boolean;
+}
+
 export type SetState<T> = React.Dispatch<React.SetStateAction<T>>
 export type fnVoid = () => void
 
@@ -23,4 +38,14 @@ export type Controls = {
     setMirror: SetState<boolean>,
     setColor: SetState<string>,
     export: fnVoid,
+}
+
+export interface MemeGeneratorProps {
+    topText: string;
+    bottomText: string;
+    textColor: string;
+    imageSize: ImageSize;
+    imageUrl: string;
+    imageMirror: boolean;
+    imageRotation: number;
 }

@@ -1,39 +1,38 @@
-import { forwardRef } from "react"
-import {Meme} from "./types"
+import useCanvas from "../hooks/useCanvas";
+import { MemeGeneratorProps } from "../types";
 
+const MemeGenerator: React.FC<MemeGeneratorProps> = ({
+    topText,
+    bottomText,
+    textColor,
+    imageSize,
+    imageUrl,
+    imageMirror,
+    imageRotation,
+}) => {
 
-const Template = forwardRef(function Template(props: Meme, ref: any ) {
+    const canvasRef = useCanvas({
+    topText,
+    bottomText,
+    textColor,
+    imageUrl,
+    imageRotation,
+    imageMirror,
+    imageSize
+    });
 
-    const {
-        width,
-        height,
-        url,
-        bottomText,
-        topText,
-        color,
-        mirror,
-        rotate,
-    } = props
 
     return (
-        <>
-            <div className="meme" ref={ref} style={{ width: width, height: height}}>
-                <img
-                    alt="meme"
-                    src={url}
-                    className="meme-image"
-                    style={{
-                        transform: `scaleX(${mirror ? -1 : 1}) rotate(${rotate}deg)`,
-                    }}
-                />
-                <div className="meme-text" style={{color: color}}>
-                    {topText && (<h2 className="text-top">{topText}</h2>)}
-                    {bottomText && (<h2 className="text-bottom">{bottomText}</h2>)}
-                </div>
-            </div>
-        </>
-    )
-})
+      <>
+        <canvas
+          ref={canvasRef}
+          width={imageSize.width}
+          height={imageSize.height}
+          style={{ border: "1px solid black" }}
+        />
+      </>
+    );
+};
 
-export default Template
+export default MemeGenerator;
 

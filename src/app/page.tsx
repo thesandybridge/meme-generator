@@ -1,6 +1,5 @@
 "use client"
 import "./globals.css"
-import { toPng } from 'html-to-image';
 import { useState, useRef } from "react"
 import Template from "./components/template";
 import Settings from "./components/settings";
@@ -15,17 +14,18 @@ export default function MemeGenerator() {
     const [rotate, setRotate] = useState(0)
     const [color, setColor] = useState("#ffffff")
 
-    const meme = useRef<HTMLDivElement>(null)
+    const canvasRef = useRef<HTMLCanvasElement | null>(null)
 
     const exportMeme = (): void => {
-        if (meme.current === null) return
-
-        toPng(meme.current).then((url) => {
-            const link = document.createElement('a')
-            link.download = 'meme.png'
-            link.href = url
-            link.click()
-        }).catch(err => console.error(err))
+        const canvas = canvasRef.current;
+        if (canvas === null) return
+        if (canvas) {
+            const dataUrl = canvas.toDataURL("image/png");
+            const downloadLink = document.createElement("a");
+            downloadLink.href = dataUrl;
+            downloadLink.download = "meme.png";
+            downloadLink.click();
+        }
     }
 
     return (
@@ -56,13 +56,11 @@ export default function MemeGenerator() {
             </div>
             <div className="workspace">
                 <Template
-                ref={meme}
-                url={url}
-                width={width}
-                height={height}
-                mirror={mirror}
-                rotate={rotate}
-                color={color}
+                imageUrl={url}
+                imageSize={{width: width, height: height}}
+                imageMirror={mirror}
+                imageRotation={rotate}
+                textColor={color}
                 topText={topTxt}
                 bottomText={bottomTxt}
                 />

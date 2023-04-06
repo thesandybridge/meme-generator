@@ -1,4 +1,4 @@
-import {Controls} from "./types"
+import {Controls} from "../types"
 import { HexColorPicker } from "react-colorful";
 import { faRotateRight, faRotateLeft, faArrowsLeftRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
