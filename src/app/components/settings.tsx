@@ -13,7 +13,7 @@ export default function Settings(props: Controls) {
 
     const handleSize = (e: any): number | undefined => {
         if (e.target.value) {
-           return parseInt(e.target.value)
+            return parseInt(e.target.value)
         } else {
             return 200
         }
