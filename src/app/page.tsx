@@ -13,7 +13,7 @@ export default function MemeGenerator() {
     const [height, setHeight] = useState(800)
     const [mirror, setMirror] = useState(false)
     const [rotate, setRotate] = useState(0)
-    const [color, setColor] = useState("#ffffff");
+    const [color, setColor] = useState("#ffffff")
 
     const meme = useRef<HTMLDivElement>(null)
 
