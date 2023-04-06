@@ -11,6 +11,14 @@ export default function Settings(props: Controls) {
         props.setHeight(props.settings?.width)
     }
 
+    const handleSize = (e: any): number | undefined => {
+        if (e.target.value) {
+           return parseInt(e.target.value)
+        } else {
+            return 200
+        }
+    }
+
     return (
         <>
             <label htmlFor="image_url">Image URL</label>
@@ -20,9 +28,21 @@ export default function Settings(props: Controls) {
             <label htmlFor="text_bottom">Bottom Text</label>
             <input type="text" name="text_bottom" value={props.settings?.bottomText} placeholder="Bottom Text" onChange={e => props.setBottomTxt(e.target.value)}/>
             <label htmlFor="width">Width</label>
-            <input type="number" min="200" name="width" value={props.settings?.width} placeholder={props.settings?.width ? props.settings?.width.toString() : ""} onChange={e => props.setWidth(parseInt(e.target.value))}/>
+            <input
+            type="number"
+            min="200"
+            name="width"
+            value={props.settings?.width}
+            placeholder={props.settings?.width ? props.settings?.width.toString() : ""}
+            onChange={e => props.setWidth(handleSize(e))}/>
             <label htmlFor="height">Height</label>
-            <input type="number" min="200" name="height" value={props.settings?.height} placeholder={props.settings?.height ? props.settings?.height.toString() : ""} onChange={e => props.setHeight(parseInt(e.target.value))}/>
+            <input
+            type="number"
+            min="200"
+            name="height"
+            value={props.settings?.height}
+            placeholder={props.settings?.height ? props.settings?.height.toString() : ""}
+            onChange={e => props.setHeight(handleSize(e))}/>
             <div className="image-controls">
                 <button title="Mirror" onClick={_ => props.setMirror(!props.settings?.mirror)}>
                     <FontAwesomeIcon style={{fontSize:"25px"}} icon={faArrowsLeftRight}></FontAwesomeIcon>
