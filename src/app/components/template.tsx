@@ -5,8 +5,7 @@ import {Meme} from "./types"
 const Template = forwardRef(function Template(props: Meme, ref: any ) {
 
     const {
-        width,
-        height,
+        scale,
         url,
         bottomText,
         topText,
@@ -17,7 +16,7 @@ const Template = forwardRef(function Template(props: Meme, ref: any ) {
 
     return (
         <>
-            <div className="meme" ref={ref} style={{ width: width, height: height}}>
+            <div className="meme" ref={ref} style={{ width: scale, height: scale}}>
                 <img
                     alt="meme"
                     src={url}

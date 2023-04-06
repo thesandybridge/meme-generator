@@ -2,8 +2,7 @@ export type SetState<T> = React.Dispatch<React.SetStateAction<T>>
 export type fnVoid = () => void
 
 export type Meme = {
-    width: number,
-    height: number,
+    scale: number,
     topText: string,
     bottomText: string,
     url: string,
@@ -18,8 +17,7 @@ export type Controls = {
     setTopTxt: SetState<string>,
     setBottomTxt: SetState<string>,
     setRotate: SetState<number>,
-    setWidth: SetState<number>,
-    setHeight: SetState<number>,
+    setScale: SetState<number>,
     setMirror: SetState<boolean>,
     setColor: SetState<string>,
     export: fnVoid,

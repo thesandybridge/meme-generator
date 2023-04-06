@@ -9,8 +9,7 @@ export default function MemeGenerator() {
     const [bottomTxt, setBottomTxt] = useState("")
     const [topTxt, setTopTxt] = useState("")
     const [url, setUrl] = useState("")
-    const [width, setWidth] = useState(800)
-    const [height, setHeight] = useState(800)
+    const [scale, setScale] = useState(800)
     const [mirror, setMirror] = useState(false)
     const [rotate, setRotate] = useState(0)
     const [color, setColor] = useState("#ffffff")
@@ -35,8 +34,7 @@ export default function MemeGenerator() {
                 <Settings
                 settings={{
                     url: url,
-                    width: width,
-                    height: height,
+                    scale: scale,
                     topText: topTxt,
                     bottomText: bottomTxt,
                     mirror: mirror,
@@ -47,8 +45,7 @@ export default function MemeGenerator() {
                 setTopTxt={setTopTxt}
                 setBottomTxt={setBottomTxt}
                 setRotate={setRotate}
-                setWidth={setWidth}
-                setHeight={setHeight}
+                setScale={setScale}
                 setMirror={setMirror}
                 setColor={setColor}
                 export={exportMeme}
@@ -58,8 +55,7 @@ export default function MemeGenerator() {
                 <Template
                 ref={meme}
                 url={url}
-                width={width}
-                height={height}
+                scale={scale}
                 mirror={mirror}
                 rotate={rotate}
                 color={color}
