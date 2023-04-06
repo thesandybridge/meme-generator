@@ -22,6 +22,7 @@ const MemeTemplate = forwardRef(function MemeTemplate(props: Meme, ref: any ) {
                     alt={`${topText} -- ${bottomText}`}
                     src={url}
                     className="meme-image"
+                    crossOrigin="anonymous"
                     style={{
                         transform: `scaleX(${mirror ? -1 : 1}) rotate(${rotate}deg)`,
                     }}
