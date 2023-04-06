@@ -2,7 +2,7 @@ import { forwardRef } from "react"
 import {Meme} from "./types"
 
 
-const Template = forwardRef(function Template(props: Meme, ref) {
+const Template = forwardRef(function Template(props: Meme, ref: any ) {
     return (
         <>
             <div className="meme" ref={ref} style={{ width: props.width, height: props.height}}>
