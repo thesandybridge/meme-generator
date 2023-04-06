@@ -33,7 +33,7 @@ export default function MemeGenerator() {
     return (
         <div className="meme-interface">
             <div className="meme-settings">
-                <h1>Meme Generator</h1>
+                <h1 id="title">Meme Generator</h1>
                 <Settings
                 settings={{
                     url: url,

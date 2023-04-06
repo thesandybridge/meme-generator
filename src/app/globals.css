@@ -159,6 +159,10 @@ main {
     writing-mode: vertical-rl;
 }
 
+#title {
+    text-align: center;
+}
+
 @media screen and (max-width: 768px) {
   .meme-interface {
       grid-template-columns: 100%;
