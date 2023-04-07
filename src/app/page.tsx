@@ -14,18 +14,31 @@ export default function MemeGenerator() {
     const [rotate, setRotate] = useState(0)
     const [color, setColor] = useState("#ffffff")
     const [bars, setBars] = useState(false)
+    const [exportError, setExportErr] = useState(null)
 
     const meme = useRef<HTMLDivElement>(null)
+
+    const screenShot = async (displayMediaOptions?: DisplayMediaStreamOptions) => {
+        return navigator.mediaDevices
+            .getDisplayMedia(displayMediaOptions)
+            .catch((err) => {
+                console.error(err)
+                return null
+            })
+    }
 
     const exportMeme = (): void => {
         if (meme.current === null) return
 
-        toPng(meme.current).then((url) => {
+        toPng(meme.current, {}).then((url) => {
             const link = document.createElement('a')
             link.download = 'meme.png'
             link.href = url
             link.click()
-        }).catch(err => console.error(err))
+        }).catch(err => {
+            console.error(err)
+            setExportErr(err)
+        })
     }
 
     return (
@@ -53,6 +66,12 @@ export default function MemeGenerator() {
                 setBars={setBars}
                 export={exportMeme}
                 />
+                {exportError && (
+                    <div className="errors">
+                        <button onClick={ _ => screenShot()}>ScreenShot</button>
+                        <p>CORS: Cross-Origin Error. Try taking a screenshot instead.</p>
+                    </div>
+                )}
             </div>
             <div className="workspace">
                 {url && (

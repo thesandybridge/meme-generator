@@ -172,6 +172,14 @@ main {
     text-align: center;
 }
 
+.errors {
+    text-align: center;
+}
+
+.errors p {
+    font-size: 12px;
+}
+
 @media screen and (max-width: 768px) {
   .meme-interface {
       grid-template-columns: 100%;
